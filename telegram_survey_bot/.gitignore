@@ -2,5 +2,4 @@
 __pycache__
 user_scenarios.md
 db/recreate_db.py
-db/export_answers_to_excel.py
 **.xlsx
