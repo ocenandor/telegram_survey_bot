@@ -1,4 +1,4 @@
-from telegram import Update, ReplyKeyboardMarkup
+from telegram import ReplyKeyboardMarkup, Update
 from telegram.ext import ContextTypes
 
 MAIN_MENU_OPTIONS = [["survey_1"], ["other_function_1", "other_function_2"]]
