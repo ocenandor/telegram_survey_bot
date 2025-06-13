@@ -1,2 +1,4 @@
 .env
 __pycache__
+user_scenarios.md
+db/recreate_db.py

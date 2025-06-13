@@ -25,14 +25,15 @@ class Answer(Base):
     question = Column(String)
     answer = Column(String)
     timestamp = Column(DateTime, default=lambda: datetime.now(timezone.utc))
-
+    version = Column(Integer, nullable=False)
+    
     user = relationship("User", back_populates="answers")
 
 class PromoCode(Base):
     __tablename__ = 'promo_codes'
     id = Column(Integer, primary_key=True)
     code = Column(String, unique=True)
-    is_used = Column(Boolean, default=False)
+    # is_used = Column(Boolean, default=False)
     used_by_user = Column(Integer, ForeignKey('users.id'), nullable=True)
     issued_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
 
