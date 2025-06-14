@@ -1,0 +1,26 @@
+services:
+  bot:
+    build:
+      context: .
+    container_name: telegram_bot
+    depends_on:
+      - db
+    env_file:
+      - .env
+    restart: unless-stopped
+    volumes:
+      - /root/telegram_survey_bot:/app
+
+  db:
+    image: postgres:15
+    container_name: telegram_bot_db
+    environment:
+      POSTGRES_DB: bot_db
+      POSTGRES_USER: bot_user
+      POSTGRES_PASSWORD: bot_password
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  db_data:
